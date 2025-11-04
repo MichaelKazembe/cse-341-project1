@@ -3,7 +3,7 @@
 // handle routes
 const router = require("express").Router();
 
-// define routes
+// define a Home page route
 router.get("/", (req, res) => {
   res.send("Hello, World!");
 });
