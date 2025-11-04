@@ -3,6 +3,8 @@
 // Import the Express framework
 const express = require("express");
 
+const bodyParser = require("body-parser");
+
 // Import routes
 const homeRoute = require("./routes");
 const contactsRoute = require("./routes/contacts");
@@ -15,11 +17,21 @@ const app = express();
 // Define the port the server will listen on
 const PORT = process.env.PORT || 3000;
 
-// Middleware
+// Middleware to parse JSON and URL-encoded data
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+
+// define Home page route
 app.use("/", homeRoute);
 
 // define `contacts` route for all contacts
 app.use("/contacts", contactsRoute);
+
+// 404 Error Handling Middleware
+app.use((req, res, next) => {
+  const url = req.originalUrl;
+  res.status(404).send(`404 error - ${url} not found`);
+});
 
 // Initialize MongoDB connection
 mongodb.initializeDB((err) => {
