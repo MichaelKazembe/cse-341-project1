@@ -4,7 +4,8 @@
 const express = require("express");
 
 // Import routes
-const homeRoute = require("./routes/index");
+const homeRoute = require("./routes");
+const contactsRoute = require("./routes/contacts");
 
 const mongodb = require("./models/database");
 const e = require("express");
@@ -16,6 +17,9 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use("/", homeRoute);
+
+// define `contacts` route for all contacts
+app.use("/contacts", contactsRoute);
 
 // Initialize MongoDB connection
 mongodb.initializeDB((err) => {

@@ -21,18 +21,25 @@ async function initializeDB(callback) {
   try {
     // Create a new MongoDB client and connect to the database
     const client = new MongoClient(DB_URL);
+
+    // Connect to the MongoDB server
     await client.connect();
-    database = client.db(); // Use the default database specified in the URL
+
+    // Set the database instance
+    database = client.db();
     console.log("Connected to MongoDB");
-    callback(null);
+    // Invoke the callback with no error
+    callback(null, database);
   } catch (err) {
     console.error("Failed to connect to MongoDB", err);
+    // Invoke the callback with the error
     callback(err);
   }
 }
 
 // Function to get the database instance
 function getDatabase() {
+  // Check if the database has been initialized
   if (!database) {
     throw new Error("Database not initialized. Call initializeDB first.");
   }
