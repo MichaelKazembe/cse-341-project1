@@ -1,2 +1,2 @@
-# cse341
-CSE341 - Web Services Projects from BYU-Idaho Software Development Degree program
+# cse341 Project
+CSE341 - Web Services Project from BYU-Idaho Software Development Degree program
