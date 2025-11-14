@@ -1,1 +1,43 @@
-GET https://cse341-test.onrender.com/
+GET https://cse-341-project1-gsq2.onrender.com
+
+###
+# Root API Test
+GET http://localhost:3000/
+
+###
+# Contacts API Tests
+GET http://localhost:3000/contacts
+
+###
+# Get Contact by ID Test
+GET http://localhost:3000/contacts/6917a5ee3a4f44f198086ca8
+
+###
+# Create Contact Test
+POST http://localhost:3000/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Unandi",
+  "lastName": "Thindwa",
+  "email": "Unandi.Thindwa@example.com",
+  "favoriteColor": "Blue",
+  "birthday": "2018-10-23"
+}
+
+###
+# Update Contact Test
+PUT http://localhost:3000/contacts/6917a5ee3a4f44f198086ca8
+Content-Type: application/json
+
+{
+  "firstName": "Unandi",
+  "lastName": "Thindwa",
+  "email": "Unandi.Thindwa@example.com",
+  "favoriteColor": "Blue",
+  "birthday": "2021-10-23"
+}
+
+###
+# Delete Contact Test
+DELETE http://localhost:3000/contacts/64c8b5b5f5b5b5b5b5b5b5b5

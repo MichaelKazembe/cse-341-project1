@@ -3,6 +3,7 @@
 // Import the Express framework
 const express = require("express");
 
+// Import the body-parser middleware
 const bodyParser = require("body-parser");
 
 // Import routes
@@ -10,7 +11,6 @@ const homeRoute = require("./routes");
 const contactsRoute = require("./routes/contacts");
 
 const mongodb = require("./models/database");
-const e = require("express");
 
 // Create an instance of an Express application
 const app = express();
@@ -18,8 +18,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware to parse JSON and URL-encoded data
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // define Home page route
 app.use("/", homeRoute);
