@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Contacts API",
-    "description": "API documentation for the cse-341 project - Contacts RESTful API. Provides endpoints to create, read, update, and delete contacts.",
+    "description": "API documentation for Contacts RESTful API. Provides endpoints to create, read, update, and delete contacts.",
     "version": "1.0.0",
     "contact": {
       "name": "Michael Kazembe",
