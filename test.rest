@@ -1,43 +1,44 @@
-GET https://cse-341-project1-gsq2.onrender.com
+###
+# Base URL Test
+GET https://cse-341-project1-gsq2.onrender.com/
 
 ###
-# Root API Test
-GET http://localhost:3000/
-
+# API Documentation Test
+GET https://cse-341-project1-gsq2.onrender.com/api-docs
 ###
 # Contacts API Tests
-GET http://localhost:3000/contacts
+GET https://cse-341-project1-gsq2.onrender.com/contacts
 
 ###
 # Get Contact by ID Test
-GET http://localhost:3000/contacts/6917a5ee3a4f44f198086ca8
+GET https://cse-341-project1-gsq2.onrender.com/contacts/6917a5ee3a4f44f198086ca8
 
 ###
 # Create Contact Test
-POST http://localhost:3000/contacts
+POST https://cse-341-project1-gsq2.onrender.com/contacts
 Content-Type: application/json
 
 {
   "firstName": "Unandi",
   "lastName": "Thindwa",
-  "email": "Unandi.Thindwa@example.com",
+  "email": "Unandi.Thindwa@example.com/",
   "favoriteColor": "Blue",
   "birthday": "2018-10-23"
 }
 
 ###
 # Update Contact Test
-PUT http://localhost:3000/contacts/6917a5ee3a4f44f198086ca8
+PUT https://cse-341-project1-gsq2.onrender.com/contacts/6917a5ee3a4f44f198086ca8
 Content-Type: application/json
 
 {
   "firstName": "Unandi",
   "lastName": "Thindwa",
-  "email": "Unandi.Thindwa@example.com",
+  "email": "Unandi.Thindwa@example.com/",
   "favoriteColor": "Blue",
   "birthday": "2021-10-23"
 }
 
 ###
 # Delete Contact Test
-DELETE http://localhost:3000/contacts/64c8b5b5f5b5b5b5b5b5b5b5
+DELETE https://cse-341-project1-gsq2.onrender.com/contacts/64c8b5b5f5b5b5b5b5b5b5b5
