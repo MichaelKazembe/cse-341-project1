@@ -9,6 +9,8 @@ const { ObjectId } = require("mongodb");
  *  Function to handle fetching ALL contacts
  * ************************** */
 async function getAllContacts(req, res) {
+  //# swagger.tags = ["Contacts"];
+  //# swagger.description = "Get all contacts";
   try {
     // Get the database instance
     const database = db.getDatabase();
@@ -34,6 +36,8 @@ async function getAllContacts(req, res) {
  *  Function to handle fetching a single contact by ID
  * ************************** */
 async function getContactById(req, res) {
+  //# swagger.tags = ["Contacts"];
+  //# swagger.description = "Get a contact by ID";
   const contactId = req.params.id;
 
   try {
@@ -58,6 +62,8 @@ async function getContactById(req, res) {
  *  Function to handle creating a new contact
  * ************************** */
 async function createContact(req, res) {
+  //# swagger.tags = ["Contacts"];
+  //# swagger.description = "Create a new contact";
   // Validate req.body exists
   if (!req.body) {
     console.error("req.body is undefined");
@@ -112,6 +118,8 @@ async function createContact(req, res) {
  *  Function to handle updating a contact by ID
  * ************************** */
 async function updateContactById(req, res) {
+  //# swagger.tags = ["Contacts"];
+  //# swagger.description = "Update a contact by ID";
   const contactId = req.params.id;
 
   // Validate req.body exists
@@ -152,6 +160,8 @@ async function updateContactById(req, res) {
  *  Function to handle deleting a contact by ID
  * ************************** */
 async function deleteContactById(req, res) {
+  //# swagger.tags = ["Contacts"];
+  //# swagger.description = "Delete a contact by ID";
   const contactId = req.params.id;
 
   try {

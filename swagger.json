@@ -1,0 +1,318 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Contacts API",
+    "description": "API documentation for the cse-341 project - Contacts RESTful API. Provides endpoints to create, read, update, and delete contacts.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Michael Kazembe",
+      "email": "michaelkazembe@gmail.com",
+      "url": "https://github.com/michaelkazembe"
+    }
+  },
+  "host": "cse-341-project1-gsq2.onrender.com",
+  "basePath": "/",
+  "schemes": "https",
+  "paths": {
+    "/": {
+      "get": {
+        "tags": ["Home"],
+        "summary": "Welcome message",
+        "description": "Returns a welcome message from the home page.",
+        "produces": ["text/html"],
+        "responses": {
+          "200": {
+            "description": "Welcome message displayed successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/contacts/": {
+      "get": {
+        "tags": ["Contacts"],
+        "summary": "Get all contacts",
+        "description": "Retrieves a list of all contacts stored in the database.",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved all contacts",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "_id": {
+                    "type": "string",
+                    "description": "Unique identifier for the contact"
+                  },
+                  "firstName": {
+                    "type": "string",
+                    "description": "Contact's first name"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "description": "Contact's last name"
+                  },
+                  "email": {
+                    "type": "string",
+                    "description": "Contact's email address"
+                  },
+                  "favoriteColor": {
+                    "type": "string",
+                    "description": "Contact's favorite color"
+                  },
+                  "birthday": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Contact's birthday (YYYY-MM-DD format)"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Contacts"],
+        "summary": "Create a new contact",
+        "description": "Creates a new contact with the provided information.",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "Contact object to create",
+            "schema": {
+              "type": "object",
+              "required": [
+                "firstName",
+                "lastName",
+                "email",
+                "favoriteColor",
+                "birthday"
+              ],
+              "properties": {
+                "firstName": {
+                  "type": "string",
+                  "example": "Michael",
+                  "description": "Contact's first name"
+                },
+                "lastName": {
+                  "type": "string",
+                  "example": "Smith",
+                  "description": "Contact's last name"
+                },
+                "email": {
+                  "type": "string",
+                  "format": "email",
+                  "example": "michael.smith@example.com",
+                  "description": "Contact's email address"
+                },
+                "favoriteColor": {
+                  "type": "string",
+                  "example": "Blue",
+                  "description": "Contact's favorite color"
+                },
+                "birthday": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "1998-03-14",
+                  "description": "Contact's birthday (YYYY-MM-DD format)"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Contact created successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Contact created"
+                },
+                "contactId": {
+                  "type": "string",
+                  "description": "ID of the newly created contact"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Missing or invalid required fields"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/contacts/{id}": {
+      "get": {
+        "tags": ["Contacts"],
+        "summary": "Get contact by ID",
+        "description": "Retrieves a single contact by its unique identifier.",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The unique identifier (MongoDB ObjectId) of the contact"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contact retrieved successfully",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "_id": {
+                  "type": "string",
+                  "description": "Unique identifier for the contact"
+                },
+                "firstName": {
+                  "type": "string",
+                  "description": "Contact's first name"
+                },
+                "lastName": {
+                  "type": "string",
+                  "description": "Contact's last name"
+                },
+                "email": {
+                  "type": "string",
+                  "description": "Contact's email address"
+                },
+                "favoriteColor": {
+                  "type": "string",
+                  "description": "Contact's favorite color"
+                },
+                "birthday": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "Contact's birthday (YYYY-MM-DD format)"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contact not found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Contacts"],
+        "summary": "Update contact by ID",
+        "description": "Updates an existing contact with the provided information.",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The unique identifier (MongoDB ObjectId) of the contact to update"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "Contact object with updated information",
+            "schema": {
+              "type": "object",
+              "required": [
+                "firstName",
+                "lastName",
+                "email",
+                "favoriteColor",
+                "birthday"
+              ],
+              "properties": {
+                "firstName": {
+                  "type": "string",
+                  "example": "Michael",
+                  "description": "Contact's first name"
+                },
+                "lastName": {
+                  "type": "string",
+                  "example": "Smith",
+                  "description": "Contact's last name"
+                },
+                "email": {
+                  "type": "string",
+                  "format": "email",
+                  "example": "michael.smith@example.com",
+                  "description": "Contact's email address"
+                },
+                "favoriteColor": {
+                  "type": "string",
+                  "example": "Blue",
+                  "description": "Contact's favorite color"
+                },
+                "birthday": {
+                  "type": "string",
+                  "format": "date",
+                  "example": "1998-03-14",
+                  "description": "Contact's birthday (YYYY-MM-DD format)"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contact updated successfully"
+          },
+          "400": {
+            "description": "Bad Request - Missing or invalid required fields"
+          },
+          "404": {
+            "description": "Contact not found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Contacts"],
+        "summary": "Delete contact by ID",
+        "description": "Permanently deletes a contact from the database.",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The unique identifier (MongoDB ObjectId) of the contact to delete"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contact deleted successfully"
+          },
+          "404": {
+            "description": "Contact not found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}
