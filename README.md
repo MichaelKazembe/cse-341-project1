@@ -118,4 +118,4 @@ Contacts are returned in JSON format with the following structure:
 - Node.js
 - Express.js
 - MongoDB
-- dotenv
+- Swagger
