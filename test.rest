@@ -11,7 +11,7 @@ GET https://cse-341-project1-gsq2.onrender.com/contacts
 
 ###
 # Get Contact by ID Test
-GET https://cse-341-project1-gsq2.onrender.com/contacts/6917a5ee3a4f44f198086ca8
+GET https://cse-341-project1-gsq2.onrender.com/contacts/6917a5543a4f44f198086c9f
 
 ###
 # Create Contact Test
@@ -19,22 +19,22 @@ POST https://cse-341-project1-gsq2.onrender.com/contacts
 Content-Type: application/json
 
 {
-  "firstName": "Unandi",
-  "lastName": "Thindwa",
-  "email": "Unandi.Thindwa@example.com/",
-  "favoriteColor": "Blue",
-  "birthday": "2018-10-23"
+  "firstName": "Joshua",
+  "lastName": "Banda",
+  "email": "joshua.banda@example.com",
+  "favoriteColor": "Maroon",
+  "birthday": "2005-03-18"
 }
 
 ###
 # Update Contact Test
-PUT https://cse-341-project1-gsq2.onrender.com/contacts/6917a5ee3a4f44f198086ca8
+PUT https://cse-341-project1-gsq2.onrender.com/contacts/6917a5543a4f44f198086c9f
 Content-Type: application/json
 
 {
-  "firstName": "Unandi",
-  "lastName": "Thindwa",
-  "email": "Unandi.Thindwa@example.com/",
+  "firstName": "Kondi",
+  "lastName": "Baluwa",
+  "email": "kondi.baluwa@example.com",
   "favoriteColor": "Blue",
   "birthday": "2021-10-23"
 }

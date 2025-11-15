@@ -12,7 +12,7 @@
   },
   "host": "cse-341-project1-gsq2.onrender.com",
   "basePath": "/",
-  "schemes": "https",
+  "schemes": ["http", "https"],
   "paths": {
     "/": {
       "get": {
@@ -101,29 +101,27 @@
               "properties": {
                 "firstName": {
                   "type": "string",
-                  "example": "Michael",
+
                   "description": "Contact's first name"
                 },
                 "lastName": {
                   "type": "string",
-                  "example": "Smith",
+
                   "description": "Contact's last name"
                 },
                 "email": {
                   "type": "string",
                   "format": "email",
-                  "example": "michael.smith@example.com",
+
                   "description": "Contact's email address"
                 },
                 "favoriteColor": {
                   "type": "string",
-                  "example": "Blue",
                   "description": "Contact's favorite color"
                 },
                 "birthday": {
                   "type": "string",
                   "format": "date",
-                  "example": "1998-03-14",
                   "description": "Contact's birthday (YYYY-MM-DD format)"
                 }
               }
@@ -243,29 +241,25 @@
               "properties": {
                 "firstName": {
                   "type": "string",
-                  "example": "Michael",
                   "description": "Contact's first name"
                 },
                 "lastName": {
                   "type": "string",
-                  "example": "Smith",
                   "description": "Contact's last name"
                 },
                 "email": {
                   "type": "string",
                   "format": "email",
-                  "example": "michael.smith@example.com",
+
                   "description": "Contact's email address"
                 },
                 "favoriteColor": {
                   "type": "string",
-                  "example": "Blue",
                   "description": "Contact's favorite color"
                 },
                 "birthday": {
                   "type": "string",
                   "format": "date",
-                  "example": "1998-03-14",
                   "description": "Contact's birthday (YYYY-MM-DD format)"
                 }
               }
