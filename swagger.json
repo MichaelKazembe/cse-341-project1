@@ -12,7 +12,7 @@
   },
   "host": "cse-341-project1-gsq2.onrender.com",
   "basePath": "/",
-  "schemes": ["https"],
+  "schemes": "https",
   "paths": {
     "/": {
       "get": {

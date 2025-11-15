@@ -4,7 +4,7 @@ GET https://cse-341-project1-gsq2.onrender.com/
 
 ###
 # API Documentation Test
-GET https://cse-341-project1-gsq2.onrender.com/api-docs
+GET https://cse-341-project1-gsq2.onrender.com/api-docs/
 ###
 # Contacts API Tests
 GET https://cse-341-project1-gsq2.onrender.com/contacts
